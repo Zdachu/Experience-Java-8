@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.time.*;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoField;
 
 import static java.time.Month.JANUARY;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -13,7 +14,7 @@ import static org.junit.Assert.*;
 public class DateAndTimeTest {
 
     @Test
-    public void shouldCreateNewDate(){
+    public void shouldCreateNewDate(){  //done
         LocalDate newYearsEve = DateTime8.createNewYearsEve2017(); // create new years eve 2017 using the localdate static factory methods
         assertThat(newYearsEve.getYear(), is(equalTo(2017)));
         assertThat(newYearsEve.getMonth(), is(equalTo(Month.DECEMBER)));
@@ -21,20 +22,20 @@ public class DateAndTimeTest {
     }
 
     @Test
-    public void shouldGotoFirstOfNextMonth(){
+    public void shouldGotoFirstOfNextMonth(){   //done
         LocalDate newYearsEve = DateTime8.createNewYearsEve2017();
-        LocalDate firstJanuary2018 = null;
+        LocalDate firstJanuary2018 = DateTime8.goToFirstOfNextMonth2(newYearsEve);
         assertThat(firstJanuary2018.getYear(), is(equalTo(2018)));
-        assertThat(firstJanuary2018.getMonth(), is(equalTo(Month.DECEMBER)));
+        assertThat(firstJanuary2018.getMonth(), is(equalTo(Month.JANUARY)));
         assertThat(firstJanuary2018.getDayOfMonth(), is(equalTo(1)));
     }
 
     @Test
-    public void shouldRetrieveDateInformationUsingChronoFields(){
+    public void shouldRetrieveDateInformationUsingChronoFields(){   //done
         LocalDate newYearsEve = DateTime8.createNewYearsEve2017();
-        int year = 0; // replace this by getting the year using chrono fields interface
-        int month =0;
-        int day = 0;
+        int year = newYearsEve.get(ChronoField.YEAR);
+        int month = newYearsEve.get(ChronoField.MONTH_OF_YEAR);
+        int day = newYearsEve.get(ChronoField.DAY_OF_MONTH);
         assertThat(year, is(equalTo(newYearsEve.getYear())));
         assertThat(month, is(equalTo(12)));
         assertThat(day, is(equalTo(newYearsEve.getDayOfMonth())));
