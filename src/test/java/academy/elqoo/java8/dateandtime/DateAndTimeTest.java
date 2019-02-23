@@ -3,22 +3,18 @@ package academy.elqoo.java8.dateandtime;
 import org.junit.Test;
 
 import java.time.*;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.time.temporal.ChronoUnit;
 
 import static java.time.Month.JANUARY;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 public class DateAndTimeTest {
 
     @Test
     public void shouldCreateNewDate(){
-        LocalDate newYearsEve = null; // create new years eve 2017 using the localdate static factory methods
+        LocalDate newYearsEve = DateTime8.createNewYearsEve2017(); // create new years eve 2017 using the localdate static factory methods
         assertThat(newYearsEve.getYear(), is(equalTo(2017)));
         assertThat(newYearsEve.getMonth(), is(equalTo(Month.DECEMBER)));
         assertThat(newYearsEve.getDayOfMonth(), is(equalTo(31)));
