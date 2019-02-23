@@ -25,28 +25,28 @@ public class StreamTest {
     }
 
     @Test
-    public void shouldReturnSquareRoot() {
+    public void shouldReturnSquareRoot() {  //done
         List<Integer> numbers = Arrays.asList(1, 4, 16, 256);
         List<Integer> squares = Stream8.returnSquareRoot(numbers);
         assertThat(squares, is(equalTo(Arrays.asList(1, 2, 4, 16))));
     }
 
     @Test
-    public void shouldReturnAgeFromUser() {
+    public void shouldReturnAgeFromUser() { //done
         List<User> users = User.getUsersWithAge(18, 20);
         List<Integer> ageFromUsers = Stream8.getAgeFromUsers(users);
         assertThat(ageFromUsers, is(equalTo(Arrays.asList(18, 20))));
     }
 
     @Test
-    public void shouldReturnFirstTwo() {
+    public void shouldReturnFirstTwo() {    //done
         List<User> users = User.getUsersWithAge(18, 20, 21, 22, 23);
         users = Stream8.getLimitedUserList(users, 2);
         assertThat(users, is(equalTo(Arrays.asList(users.get(0), users.get(1)))));
     }
 
     @Test
-    public void shouldReturnNumberOfUsersOlderThen25() {
+    public void shouldReturnNumberOfUsersOlderThen25() {    //done
         List<User> users = User.getUsersWithAge(18, 20, 21, 22, 23, 24, 25, 26);
         Integer count = Stream8.countUsersOlderThen25(users);
         assertTrue(count == 1);

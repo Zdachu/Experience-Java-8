@@ -7,17 +7,23 @@ import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Stream8 {
 
     public static List<Integer> returnSquareRoot(List<Integer> numbers){
-        throw new NotImplementedException();
+       return  numbers.stream()
+              .map(a -> Math.sqrt(a))
+                 .map(a->a.intValue())
+              .collect(Collectors.toList());
     }
 
     public static List<Integer> getAgeFromUsers(List<User> user){
-        throw new NotImplementedException();
+       return user.stream()
+                .map(u -> u.getAge())
+                .collect(Collectors.toList());
     }
 
     public static List<Integer> getDistinctAges(List<User> users){
@@ -25,11 +31,17 @@ public class Stream8 {
     }
 
     public static List<User> getLimitedUserList(List<User> users, int limit){
-        throw new NotImplementedException();
+
+       return users.stream()
+                .limit(limit)
+                .collect(Collectors.toList());
     }
 
     public static Integer countUsersOlderThen25(List<User> users){
-        throw new NotImplementedException();
+
+       return users.stream()
+               .filter(u -> u.getAge() > 25)
+               .collect(Collectors.toList()).size();
     }
 
     public static List<String> mapToUpperCase(List<String> strings){
